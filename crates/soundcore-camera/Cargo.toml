@@ -1,0 +1,37 @@
+[package]
+name = "soundcore-camera"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Single-reader Media Foundation camera proxy with shared-memory broadcast to virtual camera consumers"
+
+[dependencies]
+thiserror = { workspace = true }
+tracing = { workspace = true }
+parking_lot = { workspace = true }
+crossbeam = { workspace = true }
+once_cell = { workspace = true }
+windows-core = { workspace = true }
+windows-result = { workspace = true }
+windows = { workspace = true, features = [
+  "Win32_Foundation",
+  "Win32_System_Com",
+  "Win32_System_Memory",
+  "Win32_System_Threading",
+  "Win32_System_Variant",
+  "Win32_Security",
+  "Win32_Security_Authorization",
+  "Win32_Media_MediaFoundation",
+  "Win32_Media_KernelStreaming",
+  "Win32_Media_DirectShow",
+  "Win32_Devices_FunctionDiscovery",
+  "Win32_Devices_Properties",
+  "Win32_UI_Shell_PropertiesSystem",
+  "Win32_Graphics_Gdi",
+] }
+
+[lib]
+path = "src/lib.rs"

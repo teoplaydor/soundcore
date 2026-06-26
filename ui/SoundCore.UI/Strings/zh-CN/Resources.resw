@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Common_Apply" xml:space="preserve"><value>应用</value></data>
+  <data name="Common_Applied" xml:space="preserve"><value>已应用</value></data>
+  <data name="Common_Refresh" xml:space="preserve"><value>刷新</value></data>
+  <data name="Common_Retry" xml:space="preserve"><value>重试</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>正在加载…</value></data>
+  <data name="Common_ErrorFmt" xml:space="preserve"><value>错误：{0}</value></data>
+  <data name="Common_On" xml:space="preserve"><value>开</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>关</value></data>
+
+  <data name="Nav_Devices" xml:space="preserve"><value>设备</value></data>
+  <data name="Nav_PerApp" xml:space="preserve"><value>按应用效果</value></data>
+  <data name="Nav_Vst" xml:space="preserve"><value>VST 插件</value></data>
+  <data name="Nav_MicLock" xml:space="preserve"><value>麦克风锁定</value></data>
+  <data name="Nav_Camera" xml:space="preserve"><value>摄像头</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>设置</value></data>
+
+  <data name="Conn_Connecting" xml:space="preserve"><value>正在连接 SoundCore 服务…</value></data>
+  <data name="Conn_FailedFmt" xml:space="preserve"><value>无法连接 SoundCore 服务：{0}</value></data>
+  <data name="Conn_Failed" xml:space="preserve"><value>无法连接 SoundCore 服务。请确认服务已安装并正在运行。</value></data>
+  <data name="Conn_Connected" xml:space="preserve"><value>已连接</value></data>
+  <data name="Conn_Disconnected" xml:space="preserve"><value>未连接</value></data>
+  <data name="Conn_Reconnecting" xml:space="preserve"><value>正在重新连接…</value></data>
+
+  <data name="Empty_NoService_Title" xml:space="preserve"><value>服务未连接</value></data>
+  <data name="Empty_NoService_Text" xml:space="preserve"><value>请启动 SoundCore 服务后重试。</value></data>
+
+  <data name="Devices_Title" xml:space="preserve"><value>音频设备</value></data>
+  <data name="Devices_Subtitle" xml:space="preserve"><value>Windows 可见的播放和录制设备。已挂载 SoundCore 效果引擎的设备带有标记。</value></data>
+  <data name="Devices_Playback" xml:space="preserve"><value>播放</value></data>
+  <data name="Devices_Capture" xml:space="preserve"><value>录制</value></data>
+  <data name="Devices_Default" xml:space="preserve"><value>默认</value></data>
+  <data name="Devices_FormatFmt" xml:space="preserve"><value>{0} Hz · {1} 声道 · {2} 位</value></data>
+  <data name="Devices_ApoBadge" xml:space="preserve"><value>SoundCore FX</value></data>
+  <data name="Devices_Empty_Title" xml:space="preserve"><value>未找到设备</value></data>
+  <data name="Devices_Empty_Text" xml:space="preserve"><value>Windows 未报告此类别中的任何设备。</value></data>
+
+  <data name="PerApp_Title" xml:space="preserve"><value>按应用效果</value></data>
+  <data name="PerApp_Subtitle" xml:space="preserve"><value>选择一个应用，将其音频通过独立的效果链处理。</value></data>
+  <data name="PerApp_Filter" xml:space="preserve"><value>按进程名筛选…</value></data>
+  <data name="PerApp_ColPid" xml:space="preserve"><value>PID</value></data>
+  <data name="PerApp_Empty_Title" xml:space="preserve"><value>没有进程</value></data>
+  <data name="PerApp_Empty_Text" xml:space="preserve"><value>无法获取应用列表。请检查服务连接后重试。</value></data>
+
+  <data name="Vst_Title" xml:space="preserve"><value>VST3 插件</value></data>
+  <data name="Vst_Subtitle" xml:space="preserve"><value>本机上发现的插件。可用于设备链和应用链。</value></data>
+  <data name="Vst_Rescan" xml:space="preserve"><value>重新扫描</value></data>
+  <data name="Vst_Scanning" xml:space="preserve"><value>正在扫描…</value></data>
+  <data name="Vst_CountFmt" xml:space="preserve"><value>找到插件：{0}</value></data>
+  <data name="Vst_Empty_Title" xml:space="preserve"><value>未找到插件</value></data>
+  <data name="Vst_Empty_Text" xml:space="preserve"><value>请安装 VST3 插件（通常位于 C:\Program Files\Common Files\VST3），然后重新扫描。</value></data>
+
+  <data name="MicLock_Title" xml:space="preserve"><value>麦克风音量锁定</value></data>
+  <data name="MicLock_Subtitle" xml:space="preserve"><value>阻止其他应用（浏览器自动增益、会议软件）更改麦克风音量。SoundCore 监视设备并立即撤销任何外部更改。</value></data>
+  <data name="MicLock_Enable" xml:space="preserve"><value>锁定麦克风音量</value></data>
+  <data name="MicLock_Device" xml:space="preserve"><value>麦克风</value></data>
+  <data name="MicLock_Volume" xml:space="preserve"><value>锁定音量</value></data>
+  <data name="MicLock_LockMute" xml:space="preserve"><value>同时锁定静音状态</value></data>
+  <data name="MicLock_Whitelist" xml:space="preserve"><value>允许的应用（每行一个，支持 * 通配符）</value></data>
+  <data name="MicLock_NeedDevice" xml:space="preserve"><value>启用锁定前请先选择麦克风。</value></data>
+
+  <data name="Camera_Title" xml:space="preserve"><value>摄像头共享</value></data>
+  <data name="Camera_Subtitle" xml:space="preserve"><value>让多个应用同时使用同一个摄像头。</value></data>
+  <data name="Camera_Enable" xml:space="preserve"><value>启用摄像头共享</value></data>
+  <data name="Camera_Source" xml:space="preserve"><value>物理摄像头</value></data>
+  <data name="Camera_Resolution" xml:space="preserve"><value>首选分辨率</value></data>
+  <data name="Camera_StatusRunningFmt" xml:space="preserve"><value>已启用 — 已连接应用：{0}，{1} fps</value></data>
+  <data name="Camera_StatusStopped" xml:space="preserve"><value>未启用</value></data>
+  <data name="Camera_Empty_Title" xml:space="preserve"><value>未找到摄像头</value></data>
+  <data name="Camera_Empty_Text" xml:space="preserve"><value>请连接摄像头并刷新列表。</value></data>
+
+  <data name="Settings_Title" xml:space="preserve"><value>设置</value></data>
+  <data name="Settings_Appearance" xml:space="preserve"><value>外观</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>语言</value></data>
+  <data name="Settings_Language_System" xml:space="preserve"><value>跟随 Windows 语言</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>界面立即更新，无需重启。</value></data>
+  <data name="Settings_Theme" xml:space="preserve"><value>主题</value></data>
+  <data name="Settings_Theme_System" xml:space="preserve"><value>跟随 Windows 主题</value></data>
+  <data name="Settings_Theme_Light" xml:space="preserve"><value>浅色</value></data>
+  <data name="Settings_Theme_Dark" xml:space="preserve"><value>深色</value></data>
+  <data name="Settings_Service" xml:space="preserve"><value>服务</value></data>
+  <data name="Settings_ServiceState" xml:space="preserve"><value>与 SoundCore 服务的连接</value></data>
+  <data name="Settings_About" xml:space="preserve"><value>关于</value></data>
+  <data name="Settings_VersionFmt" xml:space="preserve"><value>版本 {0}</value></data>
+</root>

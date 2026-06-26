@@ -1,0 +1,24 @@
+[package]
+name = "soundcore-apo-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Rust DSP core consumed by the C++ APO DLL via a stable C ABI. Built as both cdylib (for runtime linking) and staticlib (for direct linking into the APO DLL)"
+
+[dependencies]
+# The VST host integration is staged out: APO currently does pass-through
+# DSP, and the JUCE chain will be wired in once the build pipeline for
+# soundcore-vst-scanner.exe / the APO chain config is in place.
+# soundcore-vst-host = { path = "../soundcore-vst-host" }
+parking_lot = { workspace = true }
+tracing = { workspace = true }
+once_cell = { workspace = true }
+crossbeam = { workspace = true }
+ringbuf = { workspace = true }
+
+[lib]
+path = "src/lib.rs"
+crate-type = ["cdylib", "staticlib", "rlib"]

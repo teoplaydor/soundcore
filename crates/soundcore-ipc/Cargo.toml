@@ -1,0 +1,37 @@
+[package]
+name = "soundcore-ipc"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "SoundCore IPC: protobuf-defined messages and named-pipe transport for UI <-> core service"
+
+[dependencies]
+prost = { workspace = true }
+prost-types = { workspace = true }
+bytes = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+tokio-util = { workspace = true }
+tracing = { workspace = true }
+futures = { workspace = true }
+parking_lot = { workspace = true }
+windows = { workspace = true, features = [
+  "Win32_Foundation",
+  "Win32_System_Pipes",
+  "Win32_Storage_FileSystem",
+  "Win32_System_Memory",
+  "Win32_Security",
+  "Win32_Security_Authorization",
+  "Win32_System_IO",
+  "Win32_System_Threading",
+] }
+
+[build-dependencies]
+prost-build = { workspace = true }
+protoc-bin-vendored = "3"
+
+[lib]
+path = "src/lib.rs"

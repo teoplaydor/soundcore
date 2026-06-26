@@ -1,0 +1,71 @@
+<Page
+    x:Class="SoundCore.UI.Pages.CameraPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:proto="using:Soundcore.V1"
+    xmlns:loc="using:SoundCore.UI.Localization">
+
+    <ScrollViewer>
+        <StackPanel Padding="24" Spacing="14" MaxWidth="720" HorizontalAlignment="Left">
+            <StackPanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" FromVerticalOffset="32" />
+                </TransitionCollection>
+            </StackPanel.ChildrenTransitions>
+
+            <StackPanel Spacing="2">
+                <TextBlock Text="{loc:Str Key=Camera_Title}" Style="{ThemeResource TitleTextBlockStyle}" />
+                <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           TextWrapping="Wrap"
+                           Text="{loc:Str Key=Camera_Subtitle}" />
+            </StackPanel>
+
+            <!-- Sharing-mode guidance: native OS multi-app vs. compatibility mode -->
+            <InfoBar x:Name="ModeInfoBar"
+                     IsOpen="True" IsClosable="False"
+                     Severity="Informational">
+                <InfoBar.ActionButton>
+                    <Button x:Name="OpenCameraSettings"
+                            Content="Windows camera settings"
+                            Click="OpenCameraSettings_OnClick"
+                            Visibility="Collapsed" />
+                </InfoBar.ActionButton>
+            </InfoBar>
+
+            <ToggleSwitch x:Name="EnableSwitch"
+                          Header="{loc:Str Key=Camera_Enable}" />
+
+            <ComboBox x:Name="SourceCombo"
+                      Header="{loc:Str Key=Camera_Source}"
+                      Width="420"
+                      DisplayMemberPath="FriendlyName" />
+
+            <ComboBox x:Name="ResolutionCombo"
+                      Header="{loc:Str Key=Camera_Resolution}"
+                      Width="220">
+                <ComboBoxItem Content="1920×1080 @ 30 fps" Tag="1920x1080@30"/>
+                <ComboBoxItem Content="1280×720 @ 30 fps"  Tag="1280x720@30" IsSelected="True"/>
+                <ComboBoxItem Content="640×480 @ 30 fps"   Tag="640x480@30"/>
+            </ComboBox>
+
+            <TextBlock x:Name="StatusText"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+
+            <StackPanel x:Name="EmptyState"
+                        Visibility="Collapsed"
+                        Spacing="8" MaxWidth="420" Margin="0,8,0,0">
+                <TextBlock Text="{loc:Str Key=Camera_Empty_Title}"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                <TextBlock Text="{loc:Str Key=Camera_Empty_Text}"
+                           TextWrapping="Wrap"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            </StackPanel>
+
+            <Button x:Name="ApplyButton"
+                    Style="{ThemeResource AccentButtonStyle}"
+                    Content="{loc:Str Key=Common_Apply}"
+                    Click="Apply_OnClick"
+                    HorizontalAlignment="Right" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

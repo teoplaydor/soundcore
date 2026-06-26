@@ -1,0 +1,22 @@
+[package]
+name = "soundcore-vst-host"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Safe Rust wrapper over the C++ JUCE-based VST3 host (linked from native/vst-host)"
+
+[dependencies]
+thiserror = { workspace = true }
+tracing = { workspace = true }
+parking_lot = { workspace = true }
+once_cell = { workspace = true }
+
+[build-dependencies]
+# build.rs locates the native/vst-host build artifact and emits cargo:rustc-link-lib
+# directives. CMake itself is invoked by the top-level build orchestration.
+
+[lib]
+path = "src/lib.rs"

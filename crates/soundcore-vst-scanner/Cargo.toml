@@ -1,0 +1,18 @@
+[package]
+name = "soundcore-vst-scanner"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Standalone VST3 scanner — enumerates .vst3 bundles in standard install dirs and emits a JSON array. Does not load plugins (would require linking JUCE which has Direct2D/DComp ordinal requirements that fail on some Win10 builds). The APO does full metadata extraction when it actually instantiates a chosen plugin."
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+walkdir = "2"
+
+[[bin]]
+name = "soundcore-vst-scanner"
+path = "src/main.rs"

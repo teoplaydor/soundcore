@@ -1,0 +1,82 @@
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock.bak
+
+# C++ / CMake
+/build/
+**/build/
+**/*.obj
+**/*.lib
+**/*.exp
+**/*.pdb
+**/*.ilk
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake.in.tmp
+
+# Visual Studio / MSBuild
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+ARM/
+ARM64/
+*.opendb
+*.VC.db
+*.VC.opendb
+
+# .NET / WinUI 3
+*.dll.config
+*.csproj.user
+project.lock.json
+project.fragment.lock.json
+artifacts/
+publish/
+PublishProfiles/
+*.pubxml.user
+TestResults/
+*.runsettings
+*.coverage
+*.coveragexml
+
+# WiX
+*.wixobj
+*.wixpdb
+*.msi
+
+# JUCE / third_party — keep sources via submodule, ignore generated files
+/third_party/juce/build/
+/third_party/juce/Builds/
+
+# IDE / editor noise
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*~
+
+# Logs / local config
+*.log
+/logs/
+local.settings.json
+appsettings.Development.json
+
+# Secrets / signing keys — never commit
+*.pfx
+*.p12
+*.pem
+*.key
+*.snk
+.env
+.env.*
+_deps/

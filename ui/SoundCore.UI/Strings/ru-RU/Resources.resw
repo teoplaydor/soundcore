@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Common -->
+  <data name="Common_Apply" xml:space="preserve"><value>Применить</value></data>
+  <data name="Common_Applied" xml:space="preserve"><value>Применено</value></data>
+  <data name="Common_Refresh" xml:space="preserve"><value>Обновить</value></data>
+  <data name="Common_Retry" xml:space="preserve"><value>Повторить</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Загрузка…</value></data>
+  <data name="Common_ErrorFmt" xml:space="preserve"><value>Ошибка: {0}</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Вкл</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Выкл</value></data>
+
+  <!-- Navigation -->
+  <data name="Nav_Devices" xml:space="preserve"><value>Устройства</value></data>
+  <data name="Nav_PerApp" xml:space="preserve"><value>Эффекты приложений</value></data>
+  <data name="Nav_Vst" xml:space="preserve"><value>VST-плагины</value></data>
+  <data name="Nav_MicLock" xml:space="preserve"><value>Защита микрофона</value></data>
+  <data name="Nav_Camera" xml:space="preserve"><value>Камера</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>Настройки</value></data>
+
+  <!-- Connection -->
+  <data name="Conn_Connecting" xml:space="preserve"><value>Подключение к службе SoundCore…</value></data>
+  <data name="Conn_FailedFmt" xml:space="preserve"><value>Служба SoundCore недоступна: {0}</value></data>
+  <data name="Conn_Failed" xml:space="preserve"><value>Служба SoundCore недоступна. Убедитесь, что она установлена и запущена.</value></data>
+  <data name="Conn_Connected" xml:space="preserve"><value>Подключено</value></data>
+  <data name="Conn_Disconnected" xml:space="preserve"><value>Нет подключения</value></data>
+  <data name="Conn_Reconnecting" xml:space="preserve"><value>Переподключение…</value></data>
+
+  <!-- Empty states -->
+  <data name="Empty_NoService_Title" xml:space="preserve"><value>Нет связи со службой</value></data>
+  <data name="Empty_NoService_Text" xml:space="preserve"><value>Запустите службу SoundCore и повторите попытку.</value></data>
+
+  <!-- Devices page -->
+  <data name="Devices_Title" xml:space="preserve"><value>Аудиоустройства</value></data>
+  <data name="Devices_Subtitle" xml:space="preserve"><value>Устройства воспроизведения и записи, видимые Windows. Устройства с подключённым движком эффектов SoundCore отмечены значком.</value></data>
+  <data name="Devices_Playback" xml:space="preserve"><value>Воспроизведение</value></data>
+  <data name="Devices_Capture" xml:space="preserve"><value>Запись</value></data>
+  <data name="Devices_Default" xml:space="preserve"><value>По умолчанию</value></data>
+  <data name="Devices_FormatFmt" xml:space="preserve"><value>{0} Гц · {1} кан. · {2} бит</value></data>
+  <data name="Devices_ApoBadge" xml:space="preserve"><value>SoundCore FX</value></data>
+  <data name="Devices_Empty_Title" xml:space="preserve"><value>Устройства не найдены</value></data>
+  <data name="Devices_Empty_Text" xml:space="preserve"><value>Windows не сообщила ни об одном устройстве в этой категории.</value></data>
+
+  <!-- Per-app page -->
+  <data name="PerApp_Title" xml:space="preserve"><value>Эффекты для приложений</value></data>
+  <data name="PerApp_Subtitle" xml:space="preserve"><value>Выберите приложение, чтобы пропустить его звук через отдельную цепочку эффектов.</value></data>
+  <data name="PerApp_Filter" xml:space="preserve"><value>Фильтр по имени процесса…</value></data>
+  <data name="PerApp_ColPid" xml:space="preserve"><value>PID</value></data>
+  <data name="PerApp_Empty_Title" xml:space="preserve"><value>Нет процессов</value></data>
+  <data name="PerApp_Empty_Text" xml:space="preserve"><value>Не удалось получить список приложений. Проверьте подключение к службе и повторите.</value></data>
+
+  <!-- VST page -->
+  <data name="Vst_Title" xml:space="preserve"><value>Плагины VST3</value></data>
+  <data name="Vst_Subtitle" xml:space="preserve"><value>Плагины, найденные на этом ПК. Их можно использовать в цепочках устройств и приложений.</value></data>
+  <data name="Vst_Rescan" xml:space="preserve"><value>Пересканировать</value></data>
+  <data name="Vst_Scanning" xml:space="preserve"><value>Сканирование…</value></data>
+  <data name="Vst_CountFmt" xml:space="preserve"><value>Найдено плагинов: {0}</value></data>
+  <data name="Vst_Empty_Title" xml:space="preserve"><value>Плагины не найдены</value></data>
+  <data name="Vst_Empty_Text" xml:space="preserve"><value>Установите VST3-плагины (обычно в C:\Program Files\Common Files\VST3) и пересканируйте.</value></data>
+
+  <!-- Mic lock page -->
+  <data name="MicLock_Title" xml:space="preserve"><value>Защита громкости микрофона</value></data>
+  <data name="MicLock_Subtitle" xml:space="preserve"><value>Запрещает другим приложениям (автоусиление в браузере, мессенджеры) менять громкость микрофона. SoundCore следит за устройством и мгновенно возвращает любое чужое изменение.</value></data>
+  <data name="MicLock_Enable" xml:space="preserve"><value>Зафиксировать громкость микрофона</value></data>
+  <data name="MicLock_Device" xml:space="preserve"><value>Микрофон</value></data>
+  <data name="MicLock_Volume" xml:space="preserve"><value>Зафиксированная громкость</value></data>
+  <data name="MicLock_LockMute" xml:space="preserve"><value>Также фиксировать состояние «без звука»</value></data>
+  <data name="MicLock_Whitelist" xml:space="preserve"><value>Разрешённые приложения (по одному в строке, поддерживаются маски *)</value></data>
+  <data name="MicLock_NeedDevice" xml:space="preserve"><value>Выберите микрофон, прежде чем включать защиту.</value></data>
+
+  <!-- Camera page -->
+  <data name="Camera_Title" xml:space="preserve"><value>Совместный доступ к камере</value></data>
+  <data name="Camera_Subtitle" xml:space="preserve"><value>Позволяет нескольким приложениям использовать одну камеру одновременно.</value></data>
+  <data name="Camera_Enable" xml:space="preserve"><value>Включить совместный доступ</value></data>
+  <data name="Camera_Source" xml:space="preserve"><value>Физическая камера</value></data>
+  <data name="Camera_Resolution" xml:space="preserve"><value>Предпочитаемое разрешение</value></data>
+  <data name="Camera_StatusRunningFmt" xml:space="preserve"><value>Активно — подключено приложений: {0}, {1} кадр/с</value></data>
+  <data name="Camera_StatusStopped" xml:space="preserve"><value>Не активно</value></data>
+  <data name="Camera_Empty_Title" xml:space="preserve"><value>Камеры не найдены</value></data>
+  <data name="Camera_Empty_Text" xml:space="preserve"><value>Подключите камеру и обновите список.</value></data>
+
+  <!-- Settings page -->
+  <data name="Settings_Title" xml:space="preserve"><value>Настройки</value></data>
+  <data name="Settings_Appearance" xml:space="preserve"><value>Внешний вид</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>Язык</value></data>
+  <data name="Settings_Language_System" xml:space="preserve"><value>Как в Windows</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>Интерфейс обновляется сразу, перезапуск не нужен.</value></data>
+  <data name="Settings_Theme" xml:space="preserve"><value>Тема</value></data>
+  <data name="Settings_Theme_System" xml:space="preserve"><value>Как в Windows</value></data>
+  <data name="Settings_Theme_Light" xml:space="preserve"><value>Светлая</value></data>
+  <data name="Settings_Theme_Dark" xml:space="preserve"><value>Тёмная</value></data>
+  <data name="Settings_Service" xml:space="preserve"><value>Служба</value></data>
+  <data name="Settings_ServiceState" xml:space="preserve"><value>Подключение к службе SoundCore</value></data>
+  <data name="Settings_About" xml:space="preserve"><value>О программе</value></data>
+  <data name="Settings_VersionFmt" xml:space="preserve"><value>Версия {0}</value></data>
+</root>

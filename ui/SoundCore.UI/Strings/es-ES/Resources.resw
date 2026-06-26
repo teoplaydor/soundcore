@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Common_Apply" xml:space="preserve"><value>Aplicar</value></data>
+  <data name="Common_Applied" xml:space="preserve"><value>Aplicado</value></data>
+  <data name="Common_Refresh" xml:space="preserve"><value>Actualizar</value></data>
+  <data name="Common_Retry" xml:space="preserve"><value>Reintentar</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Cargando…</value></data>
+  <data name="Common_ErrorFmt" xml:space="preserve"><value>Error: {0}</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Activado</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Desactivado</value></data>
+
+  <data name="Nav_Devices" xml:space="preserve"><value>Dispositivos</value></data>
+  <data name="Nav_PerApp" xml:space="preserve"><value>Efectos por aplicación</value></data>
+  <data name="Nav_Vst" xml:space="preserve"><value>Plugins VST</value></data>
+  <data name="Nav_MicLock" xml:space="preserve"><value>Bloqueo de micrófono</value></data>
+  <data name="Nav_Camera" xml:space="preserve"><value>Cámara</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>Configuración</value></data>
+
+  <data name="Conn_Connecting" xml:space="preserve"><value>Conectando con el servicio SoundCore…</value></data>
+  <data name="Conn_FailedFmt" xml:space="preserve"><value>No se puede conectar con el servicio SoundCore: {0}</value></data>
+  <data name="Conn_Failed" xml:space="preserve"><value>El servicio SoundCore no responde. Compruebe que está instalado y en ejecución.</value></data>
+  <data name="Conn_Connected" xml:space="preserve"><value>Conectado</value></data>
+  <data name="Conn_Disconnected" xml:space="preserve"><value>Desconectado</value></data>
+  <data name="Conn_Reconnecting" xml:space="preserve"><value>Reconectando…</value></data>
+
+  <data name="Empty_NoService_Title" xml:space="preserve"><value>Servicio no conectado</value></data>
+  <data name="Empty_NoService_Text" xml:space="preserve"><value>Inicie el servicio SoundCore y vuelva a intentarlo.</value></data>
+
+  <data name="Devices_Title" xml:space="preserve"><value>Dispositivos de audio</value></data>
+  <data name="Devices_Subtitle" xml:space="preserve"><value>Dispositivos de reproducción y grabación visibles para Windows. Los dispositivos con el motor de efectos SoundCore están marcados con una insignia.</value></data>
+  <data name="Devices_Playback" xml:space="preserve"><value>Reproducción</value></data>
+  <data name="Devices_Capture" xml:space="preserve"><value>Grabación</value></data>
+  <data name="Devices_Default" xml:space="preserve"><value>Predeterminado</value></data>
+  <data name="Devices_FormatFmt" xml:space="preserve"><value>{0} Hz · {1} canales · {2} bits</value></data>
+  <data name="Devices_ApoBadge" xml:space="preserve"><value>SoundCore FX</value></data>
+  <data name="Devices_Empty_Title" xml:space="preserve"><value>No se encontraron dispositivos</value></data>
+  <data name="Devices_Empty_Text" xml:space="preserve"><value>Windows no informó de ningún dispositivo en esta categoría.</value></data>
+
+  <data name="PerApp_Title" xml:space="preserve"><value>Efectos por aplicación</value></data>
+  <data name="PerApp_Subtitle" xml:space="preserve"><value>Elija una aplicación para enrutar su audio a través de su propia cadena de efectos.</value></data>
+  <data name="PerApp_Filter" xml:space="preserve"><value>Filtrar por nombre de proceso…</value></data>
+  <data name="PerApp_ColPid" xml:space="preserve"><value>PID</value></data>
+  <data name="PerApp_Empty_Title" xml:space="preserve"><value>Sin procesos</value></data>
+  <data name="PerApp_Empty_Text" xml:space="preserve"><value>No se pudo obtener la lista de aplicaciones. Compruebe la conexión con el servicio y reintente.</value></data>
+
+  <data name="Vst_Title" xml:space="preserve"><value>Plugins VST3</value></data>
+  <data name="Vst_Subtitle" xml:space="preserve"><value>Plugins detectados en este equipo. Pueden usarse en cadenas de dispositivos y aplicaciones.</value></data>
+  <data name="Vst_Rescan" xml:space="preserve"><value>Volver a buscar</value></data>
+  <data name="Vst_Scanning" xml:space="preserve"><value>Buscando…</value></data>
+  <data name="Vst_CountFmt" xml:space="preserve"><value>Plugins encontrados: {0}</value></data>
+  <data name="Vst_Empty_Title" xml:space="preserve"><value>No se encontraron plugins</value></data>
+  <data name="Vst_Empty_Text" xml:space="preserve"><value>Instale plugins VST3 (normalmente en C:\Program Files\Common Files\VST3) y vuelva a buscar.</value></data>
+
+  <data name="MicLock_Title" xml:space="preserve"><value>Bloqueo del micrófono</value></data>
+  <data name="MicLock_Subtitle" xml:space="preserve"><value>Impide que otras aplicaciones (ganancia automática del navegador, software de videollamadas) cambien el volumen del micrófono. SoundCore vigila el dispositivo y revierte al instante cualquier cambio externo.</value></data>
+  <data name="MicLock_Enable" xml:space="preserve"><value>Bloquear el volumen del micrófono</value></data>
+  <data name="MicLock_Device" xml:space="preserve"><value>Micrófono</value></data>
+  <data name="MicLock_Volume" xml:space="preserve"><value>Volumen bloqueado</value></data>
+  <data name="MicLock_LockMute" xml:space="preserve"><value>Bloquear también el silencio</value></data>
+  <data name="MicLock_Whitelist" xml:space="preserve"><value>Aplicaciones permitidas (una por línea, se admiten comodines *)</value></data>
+  <data name="MicLock_NeedDevice" xml:space="preserve"><value>Elija un micrófono antes de activar el bloqueo.</value></data>
+
+  <data name="Camera_Title" xml:space="preserve"><value>Uso compartido de cámara</value></data>
+  <data name="Camera_Subtitle" xml:space="preserve"><value>Permite que varias aplicaciones usen la misma cámara al mismo tiempo.</value></data>
+  <data name="Camera_Enable" xml:space="preserve"><value>Activar uso compartido</value></data>
+  <data name="Camera_Source" xml:space="preserve"><value>Cámara física</value></data>
+  <data name="Camera_Resolution" xml:space="preserve"><value>Resolución preferida</value></data>
+  <data name="Camera_StatusRunningFmt" xml:space="preserve"><value>Activo — aplicaciones conectadas: {0}, {1} fps</value></data>
+  <data name="Camera_StatusStopped" xml:space="preserve"><value>Inactivo</value></data>
+  <data name="Camera_Empty_Title" xml:space="preserve"><value>No se encontraron cámaras</value></data>
+  <data name="Camera_Empty_Text" xml:space="preserve"><value>Conecte una cámara y actualice la lista.</value></data>
+
+  <data name="Settings_Title" xml:space="preserve"><value>Configuración</value></data>
+  <data name="Settings_Appearance" xml:space="preserve"><value>Apariencia</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>Idioma</value></data>
+  <data name="Settings_Language_System" xml:space="preserve"><value>Usar el idioma de Windows</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>La interfaz se actualiza al instante; no hace falta reiniciar.</value></data>
+  <data name="Settings_Theme" xml:space="preserve"><value>Tema</value></data>
+  <data name="Settings_Theme_System" xml:space="preserve"><value>Usar el tema de Windows</value></data>
+  <data name="Settings_Theme_Light" xml:space="preserve"><value>Claro</value></data>
+  <data name="Settings_Theme_Dark" xml:space="preserve"><value>Oscuro</value></data>
+  <data name="Settings_Service" xml:space="preserve"><value>Servicio</value></data>
+  <data name="Settings_ServiceState" xml:space="preserve"><value>Conexión con el servicio SoundCore</value></data>
+  <data name="Settings_About" xml:space="preserve"><value>Acerca de</value></data>
+  <data name="Settings_VersionFmt" xml:space="preserve"><value>Versión {0}</value></data>
+</root>

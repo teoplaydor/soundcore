@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    WiX 4/5 installer for SoundCore.
+
+    Build with the .NET-based WiX tool:
+        dotnet tool install --global wix
+        wix build installer\SoundCore.wxs `
+            -arch x64 `
+            -d Configuration=Release `
+            -d SoundCoreRoot=. `
+            -o build\SoundCore.msi
+
+    Or via the convenience script: scripts\build-installer.ps1
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
+
+  <?define UpgradeCode = "5A2A8F4E-9D6C-4DB2-9C61-1F2D7B845B70" ?>
+  <?define ProductVersion = "0.1.0.0" ?>
+
+  <Package
+      Name="SoundCore"
+      Manufacturer="SoundCore"
+      Version="$(ProductVersion)"
+      UpgradeCode="$(UpgradeCode)"
+      Scope="perMachine">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of SoundCore is already installed." />
+
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="Main" Title="SoundCore" Level="1">
+      <ComponentGroupRef Id="CoreServiceFiles" />
+      <ComponentGroupRef Id="ApoFiles" />
+      <ComponentGroupRef Id="VirtualCameraFiles" />
+      <ComponentGroupRef Id="UiFiles" />
+    </Feature>
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLDIR" Name="SoundCore">
+        <Directory Id="UI_DIR" Name="ui" />
+      </Directory>
+    </StandardDirectory>
+
+    <!-- ============================================================
+         Core service (Windows Service that hosts the audio engine,
+         camera proxy, mic-lock and IPC server).
+         ============================================================ -->
+    <ComponentGroup Id="CoreServiceFiles" Directory="INSTALLDIR">
+      <Component Id="CoreServiceExe" Guid="*">
+        <File Id="soundcore_core.exe"
+              Source="$(SoundCoreRoot)\target\release\soundcore-core.exe"
+              KeyPath="yes" />
+
+        <ServiceInstall
+            Id="SoundCoreService"
+            Type="ownProcess"
+            Vital="yes"
+            Name="SoundCore"
+            DisplayName="SoundCore Audio &amp; Camera Service"
+            Description="Hosts the SoundCore audio engine, virtual camera proxy, and microphone volume lock."
+            Start="auto"
+            Account="LocalSystem"
+            ErrorControl="normal" />
+
+        <ServiceControl
+            Id="StartSoundCoreService"
+            Start="install"
+            Stop="both"
+            Remove="uninstall"
+            Name="SoundCore"
+            Wait="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- ============================================================
+         APO DLL (audio processing object). Registers itself via
+         DllRegisterServer so audiodg.exe can load it.
+         ============================================================ -->
+    <ComponentGroup Id="ApoFiles" Directory="INSTALLDIR">
+      <Component Id="SoundCoreApoDll" Guid="*">
+        <File Id="SoundCoreApo_dll"
+              Source="$(SoundCoreRoot)\native\build\x64\apo\Release\SoundCoreApo.dll"
+              KeyPath="yes"
+              SelfRegCost="1" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- ============================================================
+         Virtual camera DLL (DirectShow Source Filter + MFVirtualCamera).
+         ============================================================ -->
+    <ComponentGroup Id="VirtualCameraFiles" Directory="INSTALLDIR">
+      <Component Id="SoundCoreVirtualCameraDll" Guid="*">
+        <File Id="SoundCoreVirtualCamera_dll"
+              Source="$(SoundCoreRoot)\native\build\x64\virtual-camera\Release\SoundCoreVirtualCamera.dll"
+              KeyPath="yes"
+              SelfRegCost="1" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- ============================================================
+         WinUI 3 UI (self-contained .NET 8 publish).
+         ============================================================ -->
+    <ComponentGroup Id="UiFiles" Directory="UI_DIR">
+      <Component Id="SoundCoreUiExe" Guid="*">
+        <File Id="SoundCoreUI_exe"
+              Source="$(SoundCoreRoot)\ui\SoundCore.UI\bin\x64\Release\net8.0-windows10.0.19041.0\win-x64\publish\SoundCore.UI.exe"
+              KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- A shortcut on the Start menu. -->
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="STARTMENU_FOLDER" Name="SoundCore">
+        <Component Id="StartMenuShortcut" Guid="*">
+          <Shortcut Id="SoundCoreUiShortcut"
+                    Name="SoundCore"
+                    Description="Audio &amp; camera control panel"
+                    Target="[#SoundCoreUI_exe]"
+                    WorkingDirectory="UI_DIR" />
+          <RemoveFolder Id="RemoveStartMenuFolder" On="uninstall" />
+          <RegistryValue
+              Root="HKCU"
+              Key="Software\SoundCore"
+              Name="installed"
+              Type="integer"
+              Value="1"
+              KeyPath="yes" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+  </Package>
+</Wix>

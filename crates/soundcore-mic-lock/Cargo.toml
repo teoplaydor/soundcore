@@ -1,0 +1,27 @@
+[package]
+name = "soundcore-mic-lock"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Microphone volume lock: subscribe to IAudioEndpointVolumeCallback and revert external changes"
+
+[dependencies]
+thiserror = { workspace = true }
+tracing = { workspace = true }
+parking_lot = { workspace = true }
+once_cell = { workspace = true }
+soundcore-audio = { path = "../soundcore-audio" }
+windows-core = { workspace = true }
+windows-result = { workspace = true }
+windows = { workspace = true, features = [
+  "Win32_Foundation",
+  "Win32_System_Com",
+  "Win32_Media_Audio",
+  "Win32_Media_Audio_Endpoints",
+] }
+
+[lib]
+path = "src/lib.rs"

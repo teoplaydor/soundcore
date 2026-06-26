@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Common_Apply" xml:space="preserve"><value>Übernehmen</value></data>
+  <data name="Common_Applied" xml:space="preserve"><value>Übernommen</value></data>
+  <data name="Common_Refresh" xml:space="preserve"><value>Aktualisieren</value></data>
+  <data name="Common_Retry" xml:space="preserve"><value>Wiederholen</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Wird geladen…</value></data>
+  <data name="Common_ErrorFmt" xml:space="preserve"><value>Fehler: {0}</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Ein</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Aus</value></data>
+
+  <data name="Nav_Devices" xml:space="preserve"><value>Geräte</value></data>
+  <data name="Nav_PerApp" xml:space="preserve"><value>App-Effekte</value></data>
+  <data name="Nav_Vst" xml:space="preserve"><value>VST-Plug-ins</value></data>
+  <data name="Nav_MicLock" xml:space="preserve"><value>Mikrofonschutz</value></data>
+  <data name="Nav_Camera" xml:space="preserve"><value>Kamera</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>Einstellungen</value></data>
+
+  <data name="Conn_Connecting" xml:space="preserve"><value>Verbindung zum SoundCore-Dienst wird hergestellt…</value></data>
+  <data name="Conn_FailedFmt" xml:space="preserve"><value>SoundCore-Dienst nicht erreichbar: {0}</value></data>
+  <data name="Conn_Failed" xml:space="preserve"><value>Der SoundCore-Dienst ist nicht erreichbar. Stellen Sie sicher, dass er installiert ist und ausgeführt wird.</value></data>
+  <data name="Conn_Connected" xml:space="preserve"><value>Verbunden</value></data>
+  <data name="Conn_Disconnected" xml:space="preserve"><value>Getrennt</value></data>
+  <data name="Conn_Reconnecting" xml:space="preserve"><value>Erneutes Verbinden…</value></data>
+
+  <data name="Empty_NoService_Title" xml:space="preserve"><value>Dienst nicht verbunden</value></data>
+  <data name="Empty_NoService_Text" xml:space="preserve"><value>Starten Sie den SoundCore-Dienst und versuchen Sie es erneut.</value></data>
+
+  <data name="Devices_Title" xml:space="preserve"><value>Audiogeräte</value></data>
+  <data name="Devices_Subtitle" xml:space="preserve"><value>Wiedergabe- und Aufnahmegeräte, die Windows sieht. Geräte mit aktiver SoundCore-Effekt-Engine sind markiert.</value></data>
+  <data name="Devices_Playback" xml:space="preserve"><value>Wiedergabe</value></data>
+  <data name="Devices_Capture" xml:space="preserve"><value>Aufnahme</value></data>
+  <data name="Devices_Default" xml:space="preserve"><value>Standard</value></data>
+  <data name="Devices_FormatFmt" xml:space="preserve"><value>{0} Hz · {1} Kanäle · {2} Bit</value></data>
+  <data name="Devices_ApoBadge" xml:space="preserve"><value>SoundCore FX</value></data>
+  <data name="Devices_Empty_Title" xml:space="preserve"><value>Keine Geräte gefunden</value></data>
+  <data name="Devices_Empty_Text" xml:space="preserve"><value>Windows hat in dieser Kategorie keine Geräte gemeldet.</value></data>
+
+  <data name="PerApp_Title" xml:space="preserve"><value>Effekte pro App</value></data>
+  <data name="PerApp_Subtitle" xml:space="preserve"><value>Wählen Sie eine Anwendung, um ihren Ton durch eine eigene Effektkette zu leiten.</value></data>
+  <data name="PerApp_Filter" xml:space="preserve"><value>Nach Prozessname filtern…</value></data>
+  <data name="PerApp_ColPid" xml:space="preserve"><value>PID</value></data>
+  <data name="PerApp_Empty_Title" xml:space="preserve"><value>Keine Prozesse</value></data>
+  <data name="PerApp_Empty_Text" xml:space="preserve"><value>Anwendungsliste konnte nicht geladen werden. Prüfen Sie die Dienstverbindung und versuchen Sie es erneut.</value></data>
+
+  <data name="Vst_Title" xml:space="preserve"><value>VST3-Plug-ins</value></data>
+  <data name="Vst_Subtitle" xml:space="preserve"><value>Auf diesem PC gefundene Plug-ins. Verwendbar in Geräte- und App-Ketten.</value></data>
+  <data name="Vst_Rescan" xml:space="preserve"><value>Neu scannen</value></data>
+  <data name="Vst_Scanning" xml:space="preserve"><value>Scan läuft…</value></data>
+  <data name="Vst_CountFmt" xml:space="preserve"><value>Gefundene Plug-ins: {0}</value></data>
+  <data name="Vst_Empty_Title" xml:space="preserve"><value>Keine Plug-ins gefunden</value></data>
+  <data name="Vst_Empty_Text" xml:space="preserve"><value>Installieren Sie VST3-Plug-ins (üblicherweise unter C:\Program Files\Common Files\VST3) und scannen Sie erneut.</value></data>
+
+  <data name="MicLock_Title" xml:space="preserve"><value>Mikrofonlautstärke sperren</value></data>
+  <data name="MicLock_Subtitle" xml:space="preserve"><value>Verhindert, dass andere Apps (Browser-Auto-Gain, Konferenzsoftware) die Mikrofonlautstärke ändern. SoundCore überwacht das Gerät und macht fremde Änderungen sofort rückgängig.</value></data>
+  <data name="MicLock_Enable" xml:space="preserve"><value>Mikrofonlautstärke sperren</value></data>
+  <data name="MicLock_Device" xml:space="preserve"><value>Mikrofon</value></data>
+  <data name="MicLock_Volume" xml:space="preserve"><value>Gesperrte Lautstärke</value></data>
+  <data name="MicLock_LockMute" xml:space="preserve"><value>Auch Stummschaltung sperren</value></data>
+  <data name="MicLock_Whitelist" xml:space="preserve"><value>Erlaubte Apps (eine pro Zeile, *-Platzhalter möglich)</value></data>
+  <data name="MicLock_NeedDevice" xml:space="preserve"><value>Wählen Sie zuerst ein Mikrofon aus, bevor Sie die Sperre aktivieren.</value></data>
+
+  <data name="Camera_Title" xml:space="preserve"><value>Kamerafreigabe</value></data>
+  <data name="Camera_Subtitle" xml:space="preserve"><value>Ermöglicht mehreren Anwendungen, dieselbe Kamera gleichzeitig zu nutzen.</value></data>
+  <data name="Camera_Enable" xml:space="preserve"><value>Kamerafreigabe aktivieren</value></data>
+  <data name="Camera_Source" xml:space="preserve"><value>Physische Kamera</value></data>
+  <data name="Camera_Resolution" xml:space="preserve"><value>Bevorzugte Auflösung</value></data>
+  <data name="Camera_StatusRunningFmt" xml:space="preserve"><value>Aktiv — verbundene Apps: {0}, {1} fps</value></data>
+  <data name="Camera_StatusStopped" xml:space="preserve"><value>Nicht aktiv</value></data>
+  <data name="Camera_Empty_Title" xml:space="preserve"><value>Keine Kameras gefunden</value></data>
+  <data name="Camera_Empty_Text" xml:space="preserve"><value>Schließen Sie eine Kamera an und aktualisieren Sie die Liste.</value></data>
+
+  <data name="Settings_Title" xml:space="preserve"><value>Einstellungen</value></data>
+  <data name="Settings_Appearance" xml:space="preserve"><value>Darstellung</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>Sprache</value></data>
+  <data name="Settings_Language_System" xml:space="preserve"><value>Windows-Sprache verwenden</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>Die Oberfläche wird sofort aktualisiert; kein Neustart nötig.</value></data>
+  <data name="Settings_Theme" xml:space="preserve"><value>Design</value></data>
+  <data name="Settings_Theme_System" xml:space="preserve"><value>Windows-Design verwenden</value></data>
+  <data name="Settings_Theme_Light" xml:space="preserve"><value>Hell</value></data>
+  <data name="Settings_Theme_Dark" xml:space="preserve"><value>Dunkel</value></data>
+  <data name="Settings_Service" xml:space="preserve"><value>Dienst</value></data>
+  <data name="Settings_ServiceState" xml:space="preserve"><value>Verbindung zum SoundCore-Dienst</value></data>
+  <data name="Settings_About" xml:space="preserve"><value>Info</value></data>
+  <data name="Settings_VersionFmt" xml:space="preserve"><value>Version {0}</value></data>
+</root>

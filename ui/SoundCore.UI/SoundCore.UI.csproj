@@ -1,0 +1,88 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>SoundCore.UI</RootNamespace>
+    <AssemblyName>SoundCore.UI</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x64</Platforms>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <WindowsPackageType>None</WindowsPackageType>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <ApplicationIcon Condition="Exists('Assets\SoundCore.ico')">Assets\SoundCore.ico</ApplicationIcon>
+    <!-- Fallback language for MRT Core; runtime language switching is done
+         via an explicit ResourceContext in Localization/Loc.cs. -->
+    <DefaultLanguage>en-US</DefaultLanguage>
+  </PropertyGroup>
+
+  <!-- Localized strings live under Strings\<bcp47>\Resources.resw and are
+       auto-included as PRIResource by the .NET/WindowsAppSDK defaults. -->
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250108002" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.28.3" />
+    <PackageReference Include="Grpc.Tools" Version="2.69.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Single source-of-truth proto at /protos/soundcore.proto, shared with the Rust IPC crate. -->
+  <ItemGroup>
+    <Protobuf Include="..\..\protos\soundcore.proto"
+              ProtoRoot="..\..\protos\"
+              GrpcServices="None"
+              OutputDir="$(IntermediateOutputPath)Protos\"
+              CompileOutputs="true"
+              Link="Protos\soundcore.proto" />
+  </ItemGroup>
+
+  <!-- Grpc.Tools registers its compile step as BeforeTargets="BeforeCompile",
+       but the WindowsAppSDK XAML markup compiler (MarkupCompilePass1)
+       runs even earlier and invokes csc internally to validate the
+       codebehind. Without this hook, generated protobuf C# is missing
+       when XamlCompiler.exe re-compiles, breaking the build. Force the
+       generation to happen before MarkupCompilePass1. -->
+  <Target Name="_SoundCore_GenerateProtobufBeforeMarkup"
+          BeforeTargets="MarkupCompilePass1;MarkupCompilePass2"
+          DependsOnTargets="Protobuf_Compile" />
+
+
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Pages\DevicesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Pages\PerAppPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Pages\VstPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Pages\MicLockPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Pages\CameraPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Pages\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+</Project>

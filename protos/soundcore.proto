@@ -1,0 +1,340 @@
+syntax = "proto3";
+
+package soundcore.v1;
+
+option csharp_namespace = "Soundcore.V1";
+
+// ============================================================================
+//  Wire framing
+//
+//  The SoundCore IPC link is a single bidirectional named pipe carrying
+//  varint-length-prefixed `Frame` messages. Either side may send a `Frame`
+//  at any time; correlation between a request and its reply is done by
+//  the `request_id` field.
+//
+//  The server pushes asynchronous notifications by sending a `Frame` whose
+//  payload is `Event`, with `request_id == 0`.
+// ============================================================================
+
+message Frame {
+  uint64 request_id = 1;
+  oneof body {
+    Request  request  = 10;
+    Response response = 11;
+    Event    event    = 12;   // server-initiated push; request_id == 0
+  }
+}
+
+// ============================================================================
+//  Primitives
+// ============================================================================
+
+message Empty {}
+
+message DeviceId {
+  // WASAPI endpoint ID (the canonical IMMDevice GetId() string)
+  string value = 1;
+}
+
+message ProcessRef {
+  // PID at the moment of the request. May be supplemented by `name_glob`
+  // when configuring sticky per-app rules (PID is ephemeral).
+  uint32 pid = 1;
+  // Optional glob on the executable filename ("chrome.exe", "msteams.exe",
+  // "Yandex*.exe"). When present, rule is matched on every process startup.
+  string name_glob = 2;
+}
+
+enum DataFlow {
+  DATA_FLOW_UNSPECIFIED = 0;
+  DATA_FLOW_RENDER      = 1;  // speakers / playback endpoint
+  DATA_FLOW_CAPTURE     = 2;  // microphone / capture endpoint
+}
+
+enum Role {
+  ROLE_UNSPECIFIED   = 0;
+  ROLE_CONSOLE       = 1;
+  ROLE_MULTIMEDIA    = 2;
+  ROLE_COMMUNICATIONS = 3;
+}
+
+// ============================================================================
+//  Audio devices
+// ============================================================================
+
+message AudioDevice {
+  DeviceId id = 1;
+  string friendly_name = 2;
+  string interface_name = 3;
+  DataFlow flow = 4;
+  bool is_default = 5;
+  bool is_default_communications = 6;
+  uint32 sample_rate = 7;
+  uint32 channel_count = 8;
+  uint32 bits_per_sample = 9;
+  float master_volume = 10;   // 0.0..1.0 scalar
+  bool mute = 11;
+  bool soundcore_apo_active = 12; // is our APO currently inserted?
+}
+
+message DeviceList { repeated AudioDevice devices = 1; }
+
+// ============================================================================
+//  Processes
+// ============================================================================
+
+message Process {
+  uint32 pid = 1;
+  string image_name = 2;     // "chrome.exe"
+  string image_path = 3;     // full path on disk
+  string display_name = 4;   // best-effort window title / FileDescription
+  bytes  icon_png = 5;       // 32×32 PNG, optional
+  // current audio sessions this process has, if any
+  repeated AudioSessionRef sessions = 6;
+}
+
+message AudioSessionRef {
+  string session_instance_id = 1;
+  DeviceId device = 2;
+  DataFlow flow = 3;
+  float peak = 4;
+  bool muted = 5;
+}
+
+message ProcessList { repeated Process processes = 1; }
+
+// ============================================================================
+//  VST plugins and FX graphs
+// ============================================================================
+
+message VstPluginInfo {
+  string uid = 1;             // VST3 ProcessorClass UID (hex)
+  string name = 2;
+  string vendor = 3;
+  string category = 4;
+  string path = 5;            // .vst3 bundle path
+  uint32 num_inputs = 6;
+  uint32 num_outputs = 7;
+  bool has_editor = 8;
+}
+
+message VstPluginList { repeated VstPluginInfo plugins = 1; }
+
+message VstParameter {
+  uint32 index = 1;
+  string name = 2;
+  float value = 3;            // 0..1 normalised
+  string text = 4;            // formatted display
+  bool automatable = 5;
+}
+
+message FxNode {
+  string node_id = 1;         // UUID assigned by core
+  VstPluginInfo plugin = 2;
+  repeated VstParameter parameters = 3;
+  bool bypassed = 4;
+  bytes plugin_state = 5;     // opaque VST3 chunk for persistence
+}
+
+message FxChain {
+  string chain_id = 1;
+  string label = 2;
+  repeated FxNode nodes = 3;
+}
+
+// ============================================================================
+//  Routing rules
+// ============================================================================
+
+message DeviceChainBinding {
+  DeviceId device = 1;
+  FxChain  chain  = 2;
+}
+
+message ProcessChainBinding {
+  ProcessRef target = 1;
+  DataFlow flow = 2;
+  FxChain chain = 3;
+  // optional: re-route this process to a different endpoint
+  DeviceId override_device = 4;
+}
+
+// ============================================================================
+//  Camera multiplex
+// ============================================================================
+
+message CameraSource {
+  string symbolic_link = 1;
+  string friendly_name = 2;
+  repeated CameraFormat supported_formats = 3;
+}
+
+message CameraFormat {
+  uint32 width = 1;
+  uint32 height = 2;
+  uint32 frame_rate_num = 3;
+  uint32 frame_rate_den = 4;
+  string subtype = 5;        // "NV12", "YUY2", "MJPG", "RGB24"
+}
+
+message CameraList { repeated CameraSource cameras = 1; }
+
+message CameraMultiplexConfig {
+  bool enabled = 1;
+  string source_symbolic_link = 2;
+  CameraFormat preferred_format = 3;
+}
+
+// ============================================================================
+//  Mic lock
+// ============================================================================
+
+message MicLockConfig {
+  bool enabled = 1;
+  DeviceId device = 2;
+  float locked_volume = 3;       // 0..1; -1 means "freeze current"
+  bool also_lock_mute = 4;
+  bool revert_immediately = 5;   // if false, debounce 250ms
+  // Whitelist: these images may freely change mic volume
+  repeated string allowed_image_globs = 6;
+}
+
+// ============================================================================
+//  Requests
+// ============================================================================
+
+message Request {
+  oneof payload {
+    // device & process discovery
+    Empty       list_render_devices  = 1;
+    Empty       list_capture_devices = 2;
+    Empty       list_processes       = 3;
+    Empty       list_cameras         = 4;
+    Empty       list_vst_plugins     = 5;
+    Empty       rescan_vst_plugins   = 6;
+
+    // FX bindings
+    DeviceChainBinding  set_device_chain   = 20;
+    DeviceId            clear_device_chain = 21;
+    ProcessChainBinding set_process_chain  = 22;
+    ProcessRef          clear_process_chain = 23;
+    Empty               list_bindings      = 24;
+
+    // Camera
+    CameraMultiplexConfig set_camera_multiplex = 40;
+    Empty                 get_camera_multiplex = 41;
+
+    // Mic lock
+    MicLockConfig         set_mic_lock = 50;
+    Empty                 get_mic_lock = 51;
+
+    // Live VST control without re-sending the whole graph
+    SetVstParameter       set_vst_parameter = 60;
+
+    // Streaming subscriptions
+    SubscribeRequest      subscribe = 100;
+    Empty                 unsubscribe = 101;
+  }
+}
+
+message SetVstParameter {
+  string chain_id = 1;
+  string node_id  = 2;
+  uint32 index    = 3;
+  float  value    = 4;
+}
+
+message SubscribeRequest {
+  bool devices  = 1;
+  bool processes = 2;
+  bool mic_lock = 3;
+  bool level_meters = 4;
+  // when level_meters is true, push every `meter_interval_ms` ms
+  uint32 meter_interval_ms = 5;
+}
+
+// ============================================================================
+//  Responses
+// ============================================================================
+
+message Response {
+  oneof payload {
+    Empty           ok = 1;
+    ErrorReply      error = 2;
+    DeviceList      device_list = 10;
+    ProcessList     process_list = 11;
+    CameraList      camera_list = 12;
+    VstPluginList   vst_plugin_list = 13;
+    BindingList     binding_list = 14;
+    CameraMultiplexConfig camera_multiplex = 15;
+    MicLockConfig   mic_lock = 16;
+  }
+}
+
+message ErrorReply {
+  ErrorCode code = 1;
+  string message = 2;
+}
+
+enum ErrorCode {
+  ERROR_CODE_UNSPECIFIED   = 0;
+  ERROR_CODE_NOT_FOUND     = 1;
+  ERROR_CODE_PERMISSION    = 2;
+  ERROR_CODE_INVALID_ARG   = 3;
+  ERROR_CODE_NOT_READY     = 4;
+  ERROR_CODE_INTERNAL      = 5;
+  ERROR_CODE_VST_LOAD_FAIL = 6;
+  ERROR_CODE_DEVICE_GONE   = 7;
+}
+
+message BindingList {
+  repeated DeviceChainBinding  device_chains  = 1;
+  repeated ProcessChainBinding process_chains = 2;
+}
+
+// ============================================================================
+//  Server-initiated events
+// ============================================================================
+
+message Event {
+  oneof kind {
+    AudioDevice  device_changed              = 1;
+    AudioDevice  device_default_changed      = 2;
+    DeviceId     device_added                = 3;
+    DeviceId     device_removed              = 4;
+    Process      process_started             = 10;
+    uint32       process_exited              = 11;
+    MicLockEvent mic_lock_event              = 20;
+    LevelMeter   levels                      = 30;
+    ApoStatus    apo_status                  = 40;
+    CameraStatus camera_status               = 50;
+  }
+}
+
+message MicLockEvent {
+  DeviceId device = 1;
+  float attempted_volume = 2;
+  float restored_volume = 3;
+  uint32 source_pid = 4;
+  string source_image_name = 5;
+  bool blocked = 6;
+}
+
+message LevelMeter {
+  DeviceId device = 1;
+  repeated float peak_per_channel = 2;
+  repeated float rms_per_channel = 3;
+}
+
+message ApoStatus {
+  DeviceId device = 1;
+  bool loaded = 2;
+  string error_message = 3;
+}
+
+message CameraStatus {
+  bool running = 1;
+  uint32 connected_consumers = 2;
+  string source_symbolic_link = 3;
+  uint32 measured_fps_x100 = 4;       // fps * 100
+}

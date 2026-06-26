@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Common_Apply" xml:space="preserve"><value>Застосувати</value></data>
+  <data name="Common_Applied" xml:space="preserve"><value>Застосовано</value></data>
+  <data name="Common_Refresh" xml:space="preserve"><value>Оновити</value></data>
+  <data name="Common_Retry" xml:space="preserve"><value>Повторити</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Завантаження…</value></data>
+  <data name="Common_ErrorFmt" xml:space="preserve"><value>Помилка: {0}</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Увімк</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Вимк</value></data>
+
+  <data name="Nav_Devices" xml:space="preserve"><value>Пристрої</value></data>
+  <data name="Nav_PerApp" xml:space="preserve"><value>Ефекти застосунків</value></data>
+  <data name="Nav_Vst" xml:space="preserve"><value>VST-плагіни</value></data>
+  <data name="Nav_MicLock" xml:space="preserve"><value>Захист мікрофона</value></data>
+  <data name="Nav_Camera" xml:space="preserve"><value>Камера</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>Налаштування</value></data>
+
+  <data name="Conn_Connecting" xml:space="preserve"><value>Підключення до служби SoundCore…</value></data>
+  <data name="Conn_FailedFmt" xml:space="preserve"><value>Служба SoundCore недоступна: {0}</value></data>
+  <data name="Conn_Failed" xml:space="preserve"><value>Служба SoundCore недоступна. Переконайтеся, що вона встановлена і запущена.</value></data>
+  <data name="Conn_Connected" xml:space="preserve"><value>Підключено</value></data>
+  <data name="Conn_Disconnected" xml:space="preserve"><value>Немає підключення</value></data>
+  <data name="Conn_Reconnecting" xml:space="preserve"><value>Повторне підключення…</value></data>
+
+  <data name="Empty_NoService_Title" xml:space="preserve"><value>Немає зв'язку зі службою</value></data>
+  <data name="Empty_NoService_Text" xml:space="preserve"><value>Запустіть службу SoundCore і спробуйте ще раз.</value></data>
+
+  <data name="Devices_Title" xml:space="preserve"><value>Аудіопристрої</value></data>
+  <data name="Devices_Subtitle" xml:space="preserve"><value>Пристрої відтворення та запису, видимі Windows. Пристрої з підключеним рушієм ефектів SoundCore позначені значком.</value></data>
+  <data name="Devices_Playback" xml:space="preserve"><value>Відтворення</value></data>
+  <data name="Devices_Capture" xml:space="preserve"><value>Запис</value></data>
+  <data name="Devices_Default" xml:space="preserve"><value>За замовчуванням</value></data>
+  <data name="Devices_FormatFmt" xml:space="preserve"><value>{0} Гц · {1} кан. · {2} біт</value></data>
+  <data name="Devices_ApoBadge" xml:space="preserve"><value>SoundCore FX</value></data>
+  <data name="Devices_Empty_Title" xml:space="preserve"><value>Пристрої не знайдено</value></data>
+  <data name="Devices_Empty_Text" xml:space="preserve"><value>Windows не повідомила про жоден пристрій у цій категорії.</value></data>
+
+  <data name="PerApp_Title" xml:space="preserve"><value>Ефекти для застосунків</value></data>
+  <data name="PerApp_Subtitle" xml:space="preserve"><value>Виберіть застосунок, щоб пропустити його звук через окремий ланцюжок ефектів.</value></data>
+  <data name="PerApp_Filter" xml:space="preserve"><value>Фільтр за іменем процесу…</value></data>
+  <data name="PerApp_ColPid" xml:space="preserve"><value>PID</value></data>
+  <data name="PerApp_Empty_Title" xml:space="preserve"><value>Немає процесів</value></data>
+  <data name="PerApp_Empty_Text" xml:space="preserve"><value>Не вдалося отримати список застосунків. Перевірте підключення до служби та повторіть.</value></data>
+
+  <data name="Vst_Title" xml:space="preserve"><value>Плагіни VST3</value></data>
+  <data name="Vst_Subtitle" xml:space="preserve"><value>Плагіни, знайдені на цьому ПК. Їх можна використовувати в ланцюжках пристроїв і застосунків.</value></data>
+  <data name="Vst_Rescan" xml:space="preserve"><value>Пересканувати</value></data>
+  <data name="Vst_Scanning" xml:space="preserve"><value>Сканування…</value></data>
+  <data name="Vst_CountFmt" xml:space="preserve"><value>Знайдено плагінів: {0}</value></data>
+  <data name="Vst_Empty_Title" xml:space="preserve"><value>Плагіни не знайдено</value></data>
+  <data name="Vst_Empty_Text" xml:space="preserve"><value>Установіть VST3-плагіни (зазвичай у C:\Program Files\Common Files\VST3) і перескануйте.</value></data>
+
+  <data name="MicLock_Title" xml:space="preserve"><value>Захист гучності мікрофона</value></data>
+  <data name="MicLock_Subtitle" xml:space="preserve"><value>Забороняє іншим застосункам (автопідсилення у браузері, месенджери) змінювати гучність мікрофона. SoundCore стежить за пристроєм і миттєво повертає будь-яку сторонню зміну.</value></data>
+  <data name="MicLock_Enable" xml:space="preserve"><value>Зафіксувати гучність мікрофона</value></data>
+  <data name="MicLock_Device" xml:space="preserve"><value>Мікрофон</value></data>
+  <data name="MicLock_Volume" xml:space="preserve"><value>Зафіксована гучність</value></data>
+  <data name="MicLock_LockMute" xml:space="preserve"><value>Також фіксувати стан «без звуку»</value></data>
+  <data name="MicLock_Whitelist" xml:space="preserve"><value>Дозволені застосунки (по одному в рядку, підтримуються маски *)</value></data>
+  <data name="MicLock_NeedDevice" xml:space="preserve"><value>Виберіть мікрофон, перш ніж вмикати захист.</value></data>
+
+  <data name="Camera_Title" xml:space="preserve"><value>Спільний доступ до камери</value></data>
+  <data name="Camera_Subtitle" xml:space="preserve"><value>Дозволяє кільком застосункам використовувати одну камеру одночасно.</value></data>
+  <data name="Camera_Enable" xml:space="preserve"><value>Увімкнути спільний доступ</value></data>
+  <data name="Camera_Source" xml:space="preserve"><value>Фізична камера</value></data>
+  <data name="Camera_Resolution" xml:space="preserve"><value>Бажана роздільна здатність</value></data>
+  <data name="Camera_StatusRunningFmt" xml:space="preserve"><value>Активно — підключено застосунків: {0}, {1} кадр/с</value></data>
+  <data name="Camera_StatusStopped" xml:space="preserve"><value>Не активно</value></data>
+  <data name="Camera_Empty_Title" xml:space="preserve"><value>Камери не знайдено</value></data>
+  <data name="Camera_Empty_Text" xml:space="preserve"><value>Підключіть камеру та оновіть список.</value></data>
+
+  <data name="Settings_Title" xml:space="preserve"><value>Налаштування</value></data>
+  <data name="Settings_Appearance" xml:space="preserve"><value>Зовнішній вигляд</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>Мова</value></data>
+  <data name="Settings_Language_System" xml:space="preserve"><value>Як у Windows</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>Інтерфейс оновлюється одразу, перезапуск не потрібен.</value></data>
+  <data name="Settings_Theme" xml:space="preserve"><value>Тема</value></data>
+  <data name="Settings_Theme_System" xml:space="preserve"><value>Як у Windows</value></data>
+  <data name="Settings_Theme_Light" xml:space="preserve"><value>Світла</value></data>
+  <data name="Settings_Theme_Dark" xml:space="preserve"><value>Темна</value></data>
+  <data name="Settings_Service" xml:space="preserve"><value>Служба</value></data>
+  <data name="Settings_ServiceState" xml:space="preserve"><value>Підключення до служби SoundCore</value></data>
+  <data name="Settings_About" xml:space="preserve"><value>Про програму</value></data>
+  <data name="Settings_VersionFmt" xml:space="preserve"><value>Версія {0}</value></data>
+</root>
